@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.github.hanikanon.twa",
+    "sha256_cert_fingerprints": ["80:D1:E1:8D:70:22:F3:84:4B:9C:BD:66:E1:CD:06:75:89:EB:D1:CD:8D:B2:9C:97:CC:B6:FB:5C:7F:CC:18:67"]
+  }
+}]
