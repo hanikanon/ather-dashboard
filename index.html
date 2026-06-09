@@ -29,46 +29,41 @@
   --cyan:    #0891b2;
   --pink:    #db2777;
 }
-
-.dark-btn{background:transparent;border:1px solid var(--border);border-radius:10px;padding:6px 10px;font-size:18px;cursor:pointer;}
-
-body.dark{
-  --bg:#080808;--bg2:#0f0f0f;--bg3:#161616;
-  --card:rgba(30,25,15,0.95);--card2:rgba(40,33,20,0.98);
-  --border:rgba(212,160,87,0.15);--border2:rgba(212,160,87,0.28);
-  --accent:#d4a057;--accent2:#c8913a;--accent3:#e8c47a;
-  --text:#f5e6c8;--muted:#9a8060;--muted2:#4a3820;
-  --green:#4ade80;--red:#f87171;--yellow:#fbbf24;
-  --purple:#a78bfa;--cyan:#22d3ee;--pink:#f472b6;
-}
-body.dark::before{background:radial-gradient(ellipse 60% 40% at 20% 0%,rgba(200,145,58,0.06) 0%,transparent 60%);}
-body.dark .hdr{background:rgba(8,8,8,0.98);border-bottom:1px solid rgba(212,160,87,0.2);}
-body.dark .nav{background:rgba(8,8,8,0.98);border-top:1px solid rgba(212,160,87,0.2);}
-body.dark .ocard{background:rgba(25,20,12,0.95);border-color:rgba(212,160,87,0.15);}
-body.dark .ccrd{background:rgba(25,20,12,0.95);}
-body.dark .kcard{background:rgba(25,20,12,0.95);}
-body.dark .kcard,body.dark .ccrd,body.dark .ocard,body.dark .acard,
-body.dark .topitem,body.dark .datebar,body.dark .period,body.dark .upbar,
-body.dark .frow,body.dark .scroll,body.dark select,body.dark .pbtn{
-  background:#111008!important;color:#f5e6c8!important;
-  border-color:rgba(212,160,87,0.2)!important;
-}
-body.dark .pbtn.active{background:linear-gradient(135deg,#c8913a,#d4a057)!important;color:#000!important;}
-body.dark .fchip{background:#111008!important;color:#9a8060!important;border-color:rgba(212,160,87,0.2)!important;}
-body.dark .fchip.active{background:linear-gradient(135deg,#c8913a,#d4a057)!important;color:#000!important;}
-body.dark .ktt-fill{background:linear-gradient(90deg,#c8913a,#d4a057)!important;}
-body.dark .tbtn{background:#1a1408!important;color:#9a8060!important;border-color:rgba(212,160,87,0.2)!important;}
-body.dark .tbtn.active{background:linear-gradient(135deg,#c8913a,#d4a057)!important;color:#000!important;}
-body.dark .tbtn:hover{color:#f5e6c8!important;}
-body.dark .fchip{background:#1a1408!important;color:#9a8060!important;border-color:rgba(212,160,87,0.2)!important;}
-body.dark .fchip.active{background:linear-gradient(135deg,#c8913a,#d4a057)!important;color:#000!important;}
-body.dark .fchip:hover{color:#f5e6c8!important;}
-body.dark .ktooltip{background:#0a0a06!important;}
-
-
-body.dark input{background:rgba(212,160,87,0.05)!important;color:var(--text)!important;}
-
 html,body{height:100%;font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);overflow:hidden;}
+
+/* DARK MODE */
+body.dark{
+  --bg:      #0a0a0a;
+  --bg2:     #111111;
+  --bg3:     #181818;
+  --card:    rgba(255,255,255,0.04);
+  --card2:   rgba(255,255,255,0.07);
+  --border:  rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.15);
+  --accent:  #d4a057;
+  --accent2: #c8913a;
+  --accent3: #e8b86d;
+  --text:    #f0ece8;
+  --muted:   #888880;
+  --muted2:  #444440;
+  --green:   #4ade80;
+  --red:     #f87171;
+  --yellow:  #fbbf24;
+  --purple:  #a78bfa;
+  --cyan:    #22d3ee;
+  --pink:    #f472b6;
+}
+body.dark::before{
+  background:radial-gradient(ellipse 60% 40% at 20% 0%,rgba(200,145,58,0.04) 0%,transparent 60%),
+             radial-gradient(ellipse 40% 40% at 80% 100%,rgba(167,139,250,0.03) 0%,transparent 60%);
+}
+body.dark .hdr{background:rgba(10,10,10,0.97);}
+body.dark .nav{background:rgba(10,10,10,0.97);}
+body.dark .ocard{box-shadow:0 2px 12px rgba(0,0,0,0.4);}
+
+/* DARK BUTTON */
+.dark-btn{background:transparent;border:1px solid var(--border);border-radius:10px;padding:6px 10px;font-size:18px;cursor:pointer;transition:.2s;line-height:1;}
+.dark-btn:active{transform:scale(.92);}
 
 /* BG */
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
@@ -417,7 +412,7 @@ canvas{max-height:210px;}
 </div>
 
 <!-- LOADING -->
-<div class="loading hide" id="loading">
+<div class="loading" id="loading">
   <div class="ld-logo">ATHER</div>
   <div class="ld-bar"></div>
   <div class="ld-txt" id="ldTxt">جارٍ التحميل...</div>
@@ -433,8 +428,8 @@ canvas{max-height:210px;}
     </div>
   </div>
   <div class="hdr-r">
+    <button class="dark-btn" id="darkBtn" onclick="toggleDark()" title="وضع ليلي">☀️</button>
     <div class="live"><div class="live-dot"></div>مباشر</div>
-    <button class="dark-btn" id="darkBtn" onclick="toggleDark()">☀️</button>
     <button class="sync-btn" onclick="syncData()"><span class="spin">↻</span> تحديث</button>
   </div>
 </div>
@@ -659,14 +654,28 @@ let PERIOD_A='all',DATE_FROM_A=null,DATE_TO_A=null;
 let APROD='all',FSTATUS='all',FCOLOR='all',FSIZE='all',FDELIV='all',FWILAYA='all',FSEARCH='';
 let CH={};
 
+// ═══ DARK MODE ═══
+function toggleDark(){
+  const isDark=document.body.classList.toggle('dark');
+  document.getElementById('darkBtn').textContent=isDark?'🌙':'☀️';
+  localStorage.setItem('ather_dark',isDark?'1':'0');
+}
+function initDark(){
+  const saved=localStorage.getItem('ather_dark');
+  if(saved==='1'){
+    document.body.classList.add('dark');
+    document.getElementById('darkBtn').textContent='🌙';
+  }
+}
+
 // ═══ AUTO CHECK (silent polling every 30s) ═══
 async function autoCheck(){
   try{
     const ref=await fetchSheet('__FAKE__');
     const orders=[];let empty=0;
-    for(let p=0;p<=9&&empty<3;p++){
+    for(let p=1;p<=9&&empty<3;p++){
       let any=false;
-      for(let s=0;s<=9;s++){
+      for(let s=1;s<=9;s++){
         const name=`s.${p}(${s})`;
         try{const t=await fetchSheet(name);if(t.trim()===ref.trim())continue;const o=parseOrders(t,name);orders.push(...o);any=true;}
         catch(e){}
@@ -716,9 +725,12 @@ function checkPass(){
   const p=document.getElementById('passInput').value;
   if(p===atob('QWJkZTIwMDVoYW5pLg==')){
     document.getElementById('loginScreen').style.display='none';
-    const _c=localStorage.getItem('ather_cache');
-    if(_c){try{ALL=JSON.parse(_c);buildDynamicFilters();renderAll();}catch(e){}}
-    setTimeout(()=>syncData(),200);
+    document.getElementById('loading').classList.remove('hide');
+    setLdTxt('⚡ تحميل فوري...');
+    loadFromServer().then(ok=>{
+      if(!ok){setLdTxt('🔍 جارٍ البحث...');syncData();}
+      else{setTimeout(()=>syncData(),5000);}
+    });
     setInterval(autoCheck,30*1000);
   }else{
     document.getElementById('passErr').textContent='❌ كلمة السر غير صحيحة';
@@ -755,37 +767,37 @@ function parseOrders(t,sheet){
 
 async function syncData(){
   document.querySelector('.sync-btn').classList.add('loading');
-  const hasCache=ALL.length>0;
-  // Never show loading screen
+  setLdTxt('🔍 اكتشاف المنتجات...');
+  document.getElementById('loading').classList.remove('hide');
   try{
-    // Auto-discover: try s.1 to s.9, stop after 2 empty products
+    const ref=await fetchSheet('__FAKE__');
+    const refTrim=ref.trim();
+
+    // Build all sheet names to try
+    const names=[];
+    for(let p=1;p<=9;p++)for(let s=1;s<=9;s++)names.push(`s.${p}(${s})`);
+
+    // Fetch all in parallel
+    setLdTxt('⚡ جارٍ التحميل السريع...');
+    const results=await Promise.allSettled(names.map(n=>fetchSheet(n).then(t=>({n,t}))));
+
     const orders=[];const found=[];
-    let emptyProds=0;
-    for(let x=1;x<=9;x++){
-      let anyY=false;
-      for(let y=0;y<=9;y++){
-        const name=`s.${x}(${y})`;
-        try{
-          const t=await fetchSheet(name);
-          const rows=t.trim().split('\n');
-          if(rows.length<=1)break;
-          const o=parseOrders(t,name);
-          if(o.length>0){orders.push(...o);found.push(name);anyY=true;}
-          else break;
-        }catch(e){break;}
+    for(const r of results){
+      if(r.status==='fulfilled'){
+        const{n,t}=r.value;
+        if(t.trim()===refTrim)continue;
+        const o=parseOrders(t,n);
+        if(o.length){orders.push(...o);found.push(n);}
       }
-      if(!anyY)emptyProds++;else emptyProds=0;
-      if(emptyProds>=2)break;
     }
 
     if(!orders.length)throw new Error('لا توجد بيانات');
     ALL=orders;
-    localStorage.setItem('ather_cache',JSON.stringify(orders));
     document.getElementById('lastUpdate').textContent=new Date().toLocaleTimeString('ar-DZ');
     buildDynamicFilters();
     renderAll();
     document.getElementById('loading').classList.add('hide');
-    if(!hasCache)toast(`✅ ${orders.length} طلبية`,'ok');
+    toast(`✅ ${orders.length} طلبية من ${found.length} منتج`,'ok');
   }catch(e){document.getElementById('loading').classList.add('hide');toast('❌ '+e.message,'err');}
   document.querySelector('.sync-btn').classList.remove('loading');
 }
@@ -902,6 +914,7 @@ function getFilteredAnalytics(){
 }
 function filterByDatePeriod(data,df,dt,period){
   let o=data;
+  const todayStr=new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD بالتوقيت المحلي
   if(df||dt){
     o=o.filter(x=>{
       if(!x.date)return false;
@@ -912,13 +925,17 @@ function filterByDatePeriod(data,df,dt,period){
     });
   }else if(period!=='all'){
     const now=new Date();
-    const todayLocal=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
     o=o.filter(x=>{
       if(!x.date)return false;
-      const dStr=x.date.slice(0,10);
-      if(period==='day')return dStr===todayLocal;
-      if(period==='week')return(now-d)<=7*86400000;
-      if(period==='month')return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();
+      const dStr=x.date.slice(0,10); // YYYY-MM-DD
+      if(period==='day') return dStr===todayStr;
+      if(period==='week'){
+        const d=new Date(dStr+'T00:00:00');
+        return(now-d)<=7*86400000;
+      }
+      if(period==='month'){
+        return dStr.slice(0,7)===todayStr.slice(0,7);
+      }
       return true;
     });
   }
@@ -944,8 +961,8 @@ function getBusinessContext(){
   const topWilaya=Object.entries(wilayas).sort((a,b)=>b[1]-a[1])[0];
   const products={};ALL.forEach(o=>{if(o.sheet)products[o.sheet]=(products[o.sheet]||0)+1;});
   const topProduct=Object.entries(products).sort((a,b)=>b[1]-a[1])[0];
-  const today=new Date().toDateString();
-  const todayOrders=ALL.filter(o=>o.date&&new Date(o.date).toDateString()===today).length;
+  const todayStr2=new Date().toLocaleDateString('en-CA');
+  const todayOrders=ALL.filter(o=>o.date&&o.date.slice(0,10)===todayStr2).length;
   const colors={};ALL.forEach(o=>{if(o.color)colors[o.color]=(colors[o.color]||0)+1;});
   const topColor=Object.entries(colors).sort((a,b)=>b[1]-a[1])[0];
   const sizes={};ALL.forEach(o=>{if(o.size)sizes[o.size]=(sizes[o.size]||0)+1;});
@@ -974,7 +991,7 @@ async function sendAI(){
   msgs.scrollTop=msgs.scrollHeight;
   try{
     const context=getBusinessContext();
-    const k=['gsk_o35brxkXfpdNeRT59Ndq','WGdyb3FYmS0uiCD0yhlBVuIegXuT6erK'].join('');
+    const k=['GROQ_API_KEY','WGdyb3FYmS0uiCD0yhlBVuIegXuT6erK'].join('');
     const response=await fetch('https://api.groq.com/openai/v1/chat/completions',{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+k},
@@ -1019,7 +1036,8 @@ function renderKPIs(o){
   const a1R=tot?Math.round(a1/tot*100):0;
   const a2R=tot?Math.round(a2/tot*100):0;
   const pLabel={day:'اليوم',week:'الأسبوع',month:'الشهر',all:'الإجمالي'}[PERIOD];
-  const todayCount=ALL.filter(x=>x.date&&x.date.slice(0,10)===new Date().toLocaleDateString('en-CA')).length;
+  const todayStr=new Date().toLocaleDateString('en-CA');
+  const todayCount=ALL.filter(x=>x.date&&x.date.slice(0,10)===todayStr).length;
 
   document.getElementById('k-total').textContent=tot;
   document.getElementById('k-total-sub').textContent=pLabel;
@@ -1158,13 +1176,11 @@ function renderAnalytics(){
 // ═══ TABS ═══
 function renderTabs(){
   const prods=['all',...new Set(ALL.map(o=>o.sheet))];
-  const sheetLabel=s=>{if(s==='all')return'الكل';const m=s.match(/s\.(\d+)\((\d+)\)/);return m?`ص${m[1]}-ن${m[2]}`:s;};
-  document.getElementById('prodTabs').innerHTML=prods.map(p=>`<div class="tbtn ${APROD===p?'active':''}" onclick="setProd('${p}',this)">${sheetLabel(p)} (${p==='all'?ALL.length:ALL.filter(o=>o.sheet===p).length})</div>`).join('');
+  document.getElementById('prodTabs').innerHTML=prods.map(p=>`<div class="tbtn ${APROD===p?'active':''}" onclick="setProd('${p}',this)">${p==='all'?'الكل':p} (${p==='all'?ALL.length:ALL.filter(o=>o.sheet===p).length})</div>`).join('');
 }
 function setProd(p,el){APROD=p;document.querySelectorAll('.tbtn').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderOrders();}
 
 // ═══ ORDERS ═══
-let ORDER_PAGE=30;
 function renderOrders(){
   // Count orders per respondentId
   const clientCount={};
@@ -1198,11 +1214,7 @@ function renderOrders(){
   const el=document.getElementById('ordersList');
   if(!list.length){el.innerHTML='<div class="empty">📭<br><br>لا توجد طلبيات</div>';return;}
 
-  const pageSize=30;
-  const shown=list.slice(0,window._orderPage||pageSize);
-  const hasMore=list.length>shown.length;
-
-  el.innerHTML=shown.map(o=>{
+  el.innerHTML=list.map(o=>{
     const sc=o.status==='مؤكدة'?'c':o.status==='ملغاة'?'x':o.status==='اتصال 1'?'a1':o.status==='اتصال 2'?'a2':'';
     const oc=o.status==='مؤكدة'?'var(--green)':o.status==='ملغاة'?'var(--red)':o.status==='اتصال 1'?'var(--yellow)':o.status==='اتصال 2'?'var(--cyan)':'var(--muted2)';
     const cnt=o.respondentId?clientCount[o.respondentId]||1:1;
@@ -1262,10 +1274,9 @@ function clearSearch(){
 let tt;
 function toast(m,t='ok'){const el=document.getElementById('toast');el.textContent=m;el.className=`toast show ${t}`;clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),3500);}
 function setLdTxt(t){document.getElementById('ldTxt').textContent=t;}
-function toggleDark(){const d=document.body.classList.toggle("dark");document.getElementById("darkBtn").textContent=d?"🌙":"☀️";localStorage.setItem("ather_dark",d?"1":"0");}
-function initDark(){if(localStorage.getItem("ather_dark")==="1"){document.body.classList.add("dark");document.getElementById("darkBtn").textContent="🌙";}}
-window.onload=()=>{initDark();
+window.onload=()=>{
   document.getElementById('passInput').focus();
+  initDark();
   // Register Service Worker
   if('serviceWorker' in navigator){
     navigator.serviceWorker.register('./sw.js').then(reg=>{
